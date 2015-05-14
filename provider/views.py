@@ -12,10 +12,10 @@ def bango(request):
 def braintree(request):
     new_request = prepare(request)
     new_request['headers']['Authorization'] = braintree_authorization()
-    return send('braintree', new_request)
+    return send(new_request)
 
 
-def braintree_authorization(self):
+def braintree_authorization():
     return b"Basic " + encodebytes(
         settings.BRAINTREE_PUBLIC_KEY.encode('ascii') +
         b":" +

@@ -40,7 +40,7 @@ def prepare(request):
 
 def send(requested):
     response = HttpResponse()
-    method = getattr(requests, requested['method'])
+    method = getattr(requests, requested['method'].lower())
 
     try:
         with statsd.timer('solitude-auth.send'):
